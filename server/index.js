@@ -1,7 +1,9 @@
 import express from 'express';
 import env from './config/environment.js';
 import { connectDB } from './config/db.js';
+import approutes from "./routes/auth.route.js";
 import path from "path";
+import { ValidationError } from 'express-validation';
 
 const app=express();
 const port=env.port || 5000
@@ -10,13 +12,16 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 const __dirname = path.resolve();
+
 app.get('/api/v1/getData',(req,res)=>{
     return res.status(200).json({
          success:false,
          message:'i am at work'
     })
 })
- console.log(env.name);
+
+app.use("/", approutes);
+
 if(env.name === "production"){
   app.use(express.static(path.join(__dirname,"frontend","dist")));
   app.get("*", (req, res) => {
@@ -30,6 +35,13 @@ if(env.name === "production"){
         });
       });
 }
+
+app.use(function (err, req, res, next) {
+  if (err instanceof ValidationError) {
+    return res.status(err.statusCode).json(err);
+  }
+  return res.status(500).json(err);
+});
 
 
 connectDB().then((connectedDb)=>{
