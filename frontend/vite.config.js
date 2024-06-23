@@ -36,7 +36,11 @@ export default defineConfig({
           }
           return 'assets/[name]-[hash][extname]';
         }
-      }
+      },
+      external: [
+        
+         "react-router-dom",  "axios"
+      ],
     },
     reportCompressedSize: true,
    sourcemap: true
