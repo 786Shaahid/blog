@@ -146,13 +146,4 @@ To run this project locally, you will need to add the following environment vari
 --data-urlencode 'password=*******'
 ```
 
-### create an 
 
-```bash
- curl --location 'https://asset-management-0au6.onrender.com/api/v1/asset/create/647a68e7be01b54e1ab9dd10' \
---header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2E2OGU3YmUwMWI1NGUxYWI5ZGQxHCIsImlhdCI6MTY4NTkxNDc4N30.M1jrZBHBrA7uiqOFydbjZ7hHgMhSEZ0bfJA6Tv6i79Q' \
---form 'folder=@"/D:/Assinments - Company/Terra/Test.zip"' \
---form 'name="hisham"' \
---form 'tags="dasd"' \
---form 'category="asda"'
-```
