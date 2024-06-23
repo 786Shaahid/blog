@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api/v1": {
-        target: "http://localhost:8080",
+        target: "https://blog-w1fr.onrender.com",
         changeOrigin: true,
       },
     },
