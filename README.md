@@ -10,7 +10,7 @@
 ## API Reference
 
 #### URL = [https://asset-management-0au6.onrender.com](https://blog-w1fr.onrender.com)
-local url=http://localhost:8080/
+local url=http://localhost:8080/ ( for Server)
  
 #### Create User
 
@@ -38,7 +38,7 @@ local url=http://localhost:8080/
 #### create an blog
 
 ```http
-  POST /api/v1/blog/create/
+  POST /api/v1/blog/create
 ```
 
 | Body (multipart/form-data) | params   | Type       | Description   |
@@ -52,7 +52,7 @@ local url=http://localhost:8080/
 #### Get an blogs by blog Id
 
 ```http
-  GET /api/v1/blog/:blogId
+  GET /api/v1/blog/user/:userId
 ```
 
 | Parameter | Type       | Description   |
@@ -107,17 +107,23 @@ To run this project locally, you will need to add the following environment vari
 
 ## Screenshots
 
-### Mongo DB record for an asset
+### Login
 
-![App Screenshot](./screenshots/assetDbRecord.jpg)
+![App Screenshot](./screenshots/login.jpg)
 
-### Mongo DB record for an asset soft delete
+### Blogs
 
-![App Screenshot](./screenshots/assetSoftDeleteDbRecord.jpg)
+![App Screenshot](./screenshots/blogst.jpg)
 
-### Asset Folder Name as the uploaded folder in AWS S3 Bucket
+### My post 
 
-![App Screenshot](./screenshots/assetBucketRecord.jpg)
+![App Screenshot](./screenshots/myPost.jpg)
+### Update
+
+![App Screenshot](./screenshots/updatePost.jpg)
+### Create Post
+
+![App Screenshot](./screenshots/createPost.jpg)
 
 ## cURL - Refer Api Reference as well
 
@@ -140,7 +146,7 @@ To run this project locally, you will need to add the following environment vari
 --data-urlencode 'password=*******'
 ```
 
-### create an asset
+### create an 
 
 ```bash
  curl --location 'https://asset-management-0au6.onrender.com/api/v1/asset/create/647a68e7be01b54e1ab9dd10' \
