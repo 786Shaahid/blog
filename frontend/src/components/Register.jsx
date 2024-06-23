@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import userManager from "../manager/userManager.js";
-import SignInSignUpForm from "./SignInSignUpForm.jsx";
+import SignInSignUpForm from "./SignInSignUpForm";
 import { useEffect } from "react";
 import {  Stack, Typography } from "@mui/material";
 

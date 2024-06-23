@@ -1,8 +1,9 @@
 import { Box, Button, Card, CardContent, Container, Grid, Stack, Typography } from "@mui/material";
 import blogManager from "../manager/blogManager";
+import { useTheme } from '@mui/material/styles';
 
 function Blogs({ posts, isMyPost, handleUpdate }) {
-
+  const theme = useTheme();
   const handleDelete = async (blogId) => {
     try {
       await blogManager.deleteBlogById(blogId);
@@ -19,7 +20,20 @@ function Blogs({ posts, isMyPost, handleUpdate }) {
       <Grid container spacing={3}>
         {posts?.map(post => (
           <Grid item xs={12} md={6} key={post._id}>
-            <Card sx={{ minWidth: '25rem', minHeight: 200, display: 'flex', flexDirection: 'column' }}>
+            <Card sx={{
+                minWidth: '25rem',
+                minHeight: 200,
+                display: 'flex',
+                flexDirection: 'column',
+                [theme.breakpoints.down('sm')]: {
+                  minWidth: '100%',
+                  minHeight: 150,
+                },
+                [theme.breakpoints.between('sm', 'md')]: {
+                  minWidth: '18rem',
+                  minHeight: 180,
+                },
+              }}>
               <CardContent sx={{ flex: 1 }}>
                 <Typography variant="h5" sx={{ fontSize: '1.25rem', fontWeight: 'bold' }}>
                   {post.title}
