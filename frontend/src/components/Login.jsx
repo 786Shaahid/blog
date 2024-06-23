@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import authManager from '../manager/authManager';
 import SignInSignUpForm from './SignInSignUpForm';
 import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 import { Stack, Typography } from '@mui/material';
 
 const Login = () => {
