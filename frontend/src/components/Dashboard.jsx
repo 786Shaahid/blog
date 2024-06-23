@@ -63,7 +63,7 @@ const getblogs=async ()=>{
     <>
       
       <Navbar openModal={openModal} handleCloseModal={handleCloseModal} setOpenModal={setOpenModal} handleIsMyPost={handleIsMyPost} />
-       {openModal && (<PostModal open={openModal} handleClose={handleCloseModal}/>)}
+       {openModal && (<PostModal open={openModal} handleClose={handleCloseModal} getblogs={getblogs}/>)}
       <Box mt={3}>
         <Blogs posts={data}  isMyPost={isMyPost} handleUpdate={handleOpenUpdateModal} handleDelete={handleDelete} />
       </Box>

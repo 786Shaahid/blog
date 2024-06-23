@@ -27,7 +27,7 @@ const StyledModalContent = styled(Box)(({ theme }) => ({
   position: "relative",
 }));
 
-const PostModal = ({ open, handleClose }) => {
+const PostModal = ({ open, handleClose,getblogs }) => {
   const [formData, setFormData] = useState({
     title: "",
     body: "",
@@ -44,6 +44,7 @@ const PostModal = ({ open, handleClose }) => {
     blogManager
       .createBlog(formData)
       .then((res) => {
+        getblogs()
        console.log(res.data);
       })
       .catch((err) => {
