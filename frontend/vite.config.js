@@ -1,13 +1,18 @@
-import { defineConfig } from 'vite'
+import { defineConfig, splitVendorChunkPlugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import {
   resolve
 } from "path";
+import {compression} from 'vite-plugin-compression2'
 
-
+console.log(resolve(__dirname));
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(),
+    splitVendorChunkPlugin(),
+    compression({
+      algorithm: 'brotliCompress'
+    })],
   server: {
     proxy: {
       "/api/v1": {
@@ -18,15 +23,24 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-        external: [
-            "react",
-            "react-dom",
-            "react-router-dom",
-            "react-toastify",
-            "axios"
-        ],
-    }
-},
+      output: {
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js',
+
+        assetFileNames: ({ name }) => {
+          if (/\.(gif|jpe?g|png|svg)$/.test(name ?? '')) {
+            return 'assets/images/[name]-[hash][extname]';
+          }
+          if (/\.css$/.test(name ?? '')) {
+            return 'assets/css/[name]-[hash][extname]';
+          }
+          return 'assets/[name]-[hash][extname]';
+        }
+      }
+    },
+    reportCompressedSize: true,
+   sourcemap: true
+  },
 resolve: {
   alias: {
     '@components': resolve(__dirname, 'src/components'),
