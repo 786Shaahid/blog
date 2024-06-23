@@ -8,7 +8,7 @@ import {compression} from 'vite-plugin-compression2'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: './',
+  base: '/',
   plugins: [react(),
     splitVendorChunkPlugin(),
     compression({
@@ -38,11 +38,7 @@ export default defineConfig({
           return 'assets/[name]-[hash][extname]';
         }
       },
-      external: [
-        "react",
-        "react-dom",
-        "react-router-dom",
-        "axios"],
+     
     },
     reportCompressedSize: true,
    sourcemap: true
