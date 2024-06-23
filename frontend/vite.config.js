@@ -36,7 +36,8 @@ export default defineConfig({
             "react",
             "react-dom",
             "react-router-dom",
-            "react-toastify"
+            "react-toastify",
+            "axios"
         ],
     }
 },
