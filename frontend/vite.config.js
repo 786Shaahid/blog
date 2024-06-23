@@ -5,7 +5,7 @@ import {
 } from "path";
 import {compression} from 'vite-plugin-compression2'
 
-console.log(resolve(__dirname));
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(),
@@ -38,9 +38,10 @@ export default defineConfig({
         }
       },
       external: [
-        
-         "react-router-dom",  "axios"
-      ],
+        "react",
+        "react-dom",
+        "react-router-dom",
+        "axios"],
     },
     reportCompressedSize: true,
    sourcemap: true
