@@ -1,18 +1,9 @@
-import { AppBar, Box, Button, Container, Drawer, IconButton, Link, List, ListItem, ListItemText, Toolbar, Typography, styled } from "@mui/material";
+import { AppBar, Box, Button, Container, Drawer, IconButton, Link, List, ListItem, ListItemText, Toolbar, Typography } from "@mui/material";
 import { useNavigate,NavLink } from "react-router-dom";
 import { useState } from "react";
 import MenuIcon from '@mui/icons-material/Menu';
 
-const StyledNavLink = styled(NavLink)(({ theme }) => ({
-  color: '#fff',
-  fontFamily:" sans-serif",
-  textDecoration: 'none',
-  marginRight: '1rem',
-  '&.active': {
-    
-    color: theme.palette.secondary.main,
-  },
-}));
+
 
 const Navbar = ({openModal,setOpenModal,handleIsMyPost}) => {
   const navigate = useNavigate();
@@ -34,10 +25,7 @@ const Navbar = ({openModal,setOpenModal,handleIsMyPost}) => {
    };
 
   
-  const handleMyPosts = () => {
-    navigate("/my-post");
-    setOpenDrawer(false); 
-  };
+  
 
   const DrawerList = (
     <Box

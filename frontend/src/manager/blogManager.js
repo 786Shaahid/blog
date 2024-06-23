@@ -4,7 +4,7 @@ import { API_CONSTANTS } from "../utils/contants";
 const getBlogInfo = async () => {
   const { token } = JSON.parse(localStorage.getItem("token"));
   const data = await getApi(
-    `${API_CONSTANTS.getBlogs}/`,
+    `${API_CONSTANTS.getBlogs}`,
     token
   );
   return data;
