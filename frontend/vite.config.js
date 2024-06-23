@@ -4,21 +4,21 @@ import {
   resolve
 } from "path";
 
-const aliases = {
-  '@crema': 'src/@crema',
-  'core': 'src/core',
-  'assets': 'src/assets',
-  '@hook': 'src/@hook',
-  'components': 'src/components',
-  'features': 'src/features',
-  'guards': 'src/guards',
-  'pages': 'src/pages',
-  'types': 'src/types',
-};
+// const aliases = {
+//   '@crema': 'src/@crema',
+//   'core': 'src/core',
+//   'assets': 'src/assets',
+//   '@hook': 'src/@hook',
+//   'components': 'src/components',
+//   'features': 'src/features',
+//   'guards': 'src/guards',
+//   'pages': 'src/pages',
+//   'types': 'src/types',
+// };
 
-const resolvedAliases = Object.fromEntries(
-  Object.entries(aliases).map(([key, value]) => [key, resolve(__dirname, value)]),
-);
+// const resolvedAliases = Object.fromEntries(
+//   Object.entries(aliases).map(([key, value]) => [key, resolve(__dirname, value)]),
+// );
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
@@ -41,12 +41,12 @@ export default defineConfig({
         ],
     }
 },
-resolve: {
-  alias: {
-      ...resolvedAliases,
-      './runtimeConfig': './runtimeConfig.browser',
-      'jss-plugin-{}': 'jss-plugin-global'
-  },
-},
+// resolve: {
+//   alias: {
+//       ...resolvedAliases,
+//       './runtimeConfig': './runtimeConfig.browser',
+//       'jss-plugin-{}': 'jss-plugin-global'
+//   },
+// },
 
 })
