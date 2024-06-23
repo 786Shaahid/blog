@@ -14,7 +14,7 @@ function Blogs({ posts, isMyPost, handleUpdate }) {
   return (
     <Container maxWidth="md" sx={{ mt: 4 }}>
       <Typography variant="h4" gutterBottom>
-        Blogs
+       {isMyPost ? "My Post": "Blogs"}
       </Typography>
       <Grid container spacing={3}>
         {posts?.map(post => (
