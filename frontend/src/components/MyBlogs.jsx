@@ -9,7 +9,7 @@ import {
   styled,
 } from "@mui/material";
 
-import { toast } from "react-toastify";
+
 import Close from "@mui/icons-material/Close";
 import blogManager from "../manager/blogManager";
 import { useEffect, useState } from "react";
@@ -55,11 +55,11 @@ const UpdateModal = ({ open, handleClose, blog ,getblogs}) => {
     blogManager
       .updateBlogById(blog._id, formData)
       .then((res) => {
-        toast.success("Blog updated successfully!");
+        
         getblogs()
       })
       .catch((err) => {
-        toast.error(err?.response?.data?.message || "Failed to update blog");
+        console.log(err?.message);
       });
     handleClose();
   };

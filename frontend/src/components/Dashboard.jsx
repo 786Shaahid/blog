@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import PostModal from "./PostModal";
 import Blogs from "./Blogs";
 import blogManager from "../manager/blogManager";
-import { toast } from "react-toastify";
+
 import UpdateModal from "./MyBlogs";
 const Dashboard = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -34,7 +34,7 @@ const Dashboard = () => {
  const handleDelete=async (blogId)=>{
   try {
    await  blogManager.deleteBlogById(blogId);
-   toast.success("Delete Successfully")
+   
    getblogs()
   } catch (error) {
    console.log(error);

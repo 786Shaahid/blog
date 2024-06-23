@@ -2,7 +2,7 @@ import  { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import authManager from '../manager/authManager';
 import SignInSignUpForm from './SignInSignUpForm';
-import { toast, ToastContainer } from 'react-toastify';
+
 
 import { Stack, Typography } from '@mui/material';
 
@@ -33,7 +33,7 @@ const Login = () => {
         navigate('/dashboard');
       })
       .catch((err) => {
-        toast.error(err?.response?.data.message || 'Failed to login');
+      console.log(err.message);
       });
   };
 
@@ -52,7 +52,7 @@ const Login = () => {
         </Typography>
         <SignInSignUpForm handleSubmit={handleSubmit} />
      
-      <ToastContainer />
+    
     </Stack>
   );
 };

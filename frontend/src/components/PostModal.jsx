@@ -9,7 +9,7 @@ import {
   styled,
 } from "@mui/material";
 
-import { toast } from "react-toastify";
+
 import Close from "@mui/icons-material/Close";
 import blogManager from "../manager/blogManager";
 import { useState } from "react";
@@ -44,10 +44,10 @@ const PostModal = ({ open, handleClose }) => {
     blogManager
       .createBlog(formData)
       .then((res) => {
-        toast.success("Blog created !");
+       console.log(res.data);
       })
       .catch((err) => {
-        toast.error(err?.response?.data?.message || "Failed to created");
+       console.log(err?.message);
       });
       handleClose();
   };
