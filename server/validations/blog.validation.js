@@ -1,11 +1,7 @@
 import { Joi } from "express-validation";
 import validationConstant from "./validationContant.js";
 
-export const fetchBlogById = {
-  params: Joi.object({
-    blogId: Joi.string().regex(validationConstant.OBJECTID_REGEX).required(),
-  }),
-};
+
 
 export const fetchBlogByUserId = {
   params: Joi.object({
