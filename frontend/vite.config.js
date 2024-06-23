@@ -8,6 +8,7 @@ import {compression} from 'vite-plugin-compression2'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: './',
   plugins: [react(),
     splitVendorChunkPlugin(),
     compression({
@@ -16,7 +17,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api/v1": {
-        target: "https://blog-w1fr.onrender.com",
+        target: "https://blog-1-icva.onrender.com",
         changeOrigin: true,
       },
     },
